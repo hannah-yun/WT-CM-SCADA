@@ -1,0 +1,9 @@
+# Direct dependency versions from the local graph_detection environment.
+numpy==1.26.4
+scipy==1.15.2
+pandas==2.3.3
+networkx==3.4.2
+matplotlib==3.10.8
+scikit-learn==1.7.2
+scikit-learn-extra==0.3.0
+tensorflow==2.20.0
