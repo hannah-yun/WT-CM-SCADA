@@ -4,23 +4,14 @@ Run the three numbered scripts in order from this directory. Supporting modules
 must remain alongside them.
 
 ## Installation
-
 Recommend to use Python 3.10.
-The requirements pin direct dependencies from that environment as wollows:
-
-```sh
-python3.10 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
 
 ## macOS
-For a new environment, start with an Apple Silicon (osx-arm64) Miniconda or Miniforge installation:
+For a new environment, start with an Apple Silicon (osx-arm64) Miniconda installation:
 
 ```sh
-conda create -n graph_detection -c conda-forge python=3.10 numpy=1.26.4 scipy=1.15.2
-conda activate graph_detection
+conda create -n venv -c conda-forge python=3.10 numpy=1.26.4 scipy=1.15.2
+conda activate venv
 python -m pip install -r requirements.txt
 ```
 
@@ -43,15 +34,10 @@ py -3.10 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Run each script with `.\.venv\Scripts\python.exe` instead of `python`.
-Use one-line commands; the backslash continuations in the examples below are
-for Unix shells. Begin with `--n_workers 1` for step 3.
-
 
 ## Input data
-Prepare `data/train.csv` and `data/test.csv` with matching numeric sensor columns.
+Prepare SCADA data as `data/train.csv` and `data/test.csv` with matching numeric sensor columns.
 Step 1 drops common timestamp columns and keeps numeric columns. Exclude labels
-and other numeric metadata with `--drop_cols`; do not use them as sensor inputs.
 Optional `--standardize` uses training statistics for both splits.
 
 Prepare `data/labels.csv` about the label as a failure indicator (0 normal, 1 anomaly).
@@ -105,7 +91,6 @@ timing measurements. `score_worker_twoside.py` is an optional helper and is not
 called by step 3.
 
 ## Reproducibility and scope
-
 Step 2 uses seed 42; step 3 accepts `--seed` (default 42). 
 
 `pa_rpa_metrics.py` uses an external Merlion helper if both Merlion and
