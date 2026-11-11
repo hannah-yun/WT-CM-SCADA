@@ -118,4 +118,4 @@ the numbered workflow uses `gae/embedding.py` instead.
 
 ## Licenses
 
-See `THIRD_PARTY_NOTICES.md` and the bundled package licenses. See `COPYRIGHT.md` for ownership of the original numbered scripts. 
+For gae.py and embedding.py, we use the code from: https://bit.ly/RWiLS_NCD
